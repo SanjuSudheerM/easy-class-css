@@ -1,0 +1,116 @@
+button {
+    @include color-weight($button-normal, 10, background-color);
+    transition: all 0.5s ease;
+
+    &:hover {
+        @include color-weight($button-normal, 9, background-color);
+    }
+
+    text-align: center;
+    border: 0px;
+    padding: 10px 20px;
+    border-radius: 3px !important;
+    color: $button-text-color;
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+}
+
+button.large-btn {
+    padding: 10px 40px;
+}
+
+button.drop-shadow {
+    box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.07);
+
+    &:hover {
+        box-shadow: 0px 3px 9px 3px rgba(0, 0, 0, 0.2);
+    }
+}
+
+button.danger {
+    @include color-weight($button-danger, 10, background-color);
+
+    &:hover {
+        @include color-weight($button-danger, 9, background-color);
+    }
+}
+
+button.success {
+    @include color-weight($button-success, 10, background-color);
+
+    &:hover {
+        @include color-weight($button-success, 9, background-color);
+    }
+}
+
+button.warning {
+    @include color-weight($button-warning, 10, background-color);
+
+    &:hover {
+        @include color-weight($button-warning, 9, background-color);
+    }
+}
+
+button.disabled {
+    @include color-weight($button-disabled, 10, background-color);
+    pointer-events: none;
+
+    &:hover {
+        @include color-weight($button-disabled, 9, background-color);
+    }
+}
+
+button.curved {
+    border-radius: 30px !important;
+}
+
+button.no-fill-btn {
+    background: transparent;
+    border: 2px solid;
+
+    &.danger {
+        @include color-weight($button-danger, 10, border-color);
+        @include color-weight($button-danger, 10, color);
+        &:hover {
+            @include color-weight($button-danger, 10, background-color);
+            @include color-weight($button-danger, 0, color);
+        }
+    }
+    &.success {
+        @include color-weight($button-success, 10, border-color);
+        @include color-weight($button-success, 10, color);
+        &:hover {
+            @include color-weight($button-success, 10, background-color);
+            @include color-weight($button-success, 0, color);
+        }
+    }
+    &.warning {
+        @include color-weight($button-warning, 10, border-color);
+        @include color-weight($button-warning, 10, color);
+        &:hover {
+            @include color-weight($button-warning, 10, background-color);
+            @include color-weight($button-warning, 0, color);
+        }
+    }
+    &.disabled {
+        @include color-weight($button-disabled, 10, border-color);
+        @include color-weight($button-disabled, 10, color);
+        &:hover {
+            @include color-weight($button-disabled, 10, background-color);
+            @include color-weight($button-disabled, 0, color);
+        }
+    }
+}
+
+button.icon {
+    em, i {
+        
+    }
+}
+
+button.button-off {
+    @include color-weight($button-normal, 3, background-color);
+}

@@ -1,0 +1,32 @@
+
+/** Set application base font size **/
+$base-font: 15;
+
+/** Set application base font weight **/
+$base-font-weight: 400;
+
+/** Set theme-primary-color **/
+$light-theme-primary-color:#E42314;
+$light-secondary-color: #00909e;
+$dark-theme-primary-color:#142850;
+
+/**button **/
+
+$button-text-color: #f5f5f5;
+$button-normal: #4A5762;
+$button-danger: #E42314;
+$button-warning: orange;
+$button-success: green;
+$button-disabled: gray;
+
+
+/** typography **/
+$highest-title: 24; // optional, if not set the highest font size will be 150% of base font
+
+/** frequently used colors for font-color **/
+$frequent-font-colors: (white: #ffffff, black:#000000, primary: #E42314);
+$frequent-background-colors: (primary: #E42314, card:#f5f5f5, white: #ffffff);
+
+
+/** Set font family **/
+$theme-font-url: (primary:(url:'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap', name:'Roboto'));

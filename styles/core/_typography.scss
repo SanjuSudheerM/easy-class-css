@@ -1,0 +1,15 @@
+html,
+body {
+    @include font-size($base-font);
+    font-weight: $base-font-weight;
+}
+
+.semi-bold-text {
+    font-weight: 600;
+}
+.light-text {
+    font-weight: 300;
+}
+.bold-text {
+    font-weight: 700;
+}

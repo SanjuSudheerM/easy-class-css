@@ -1,0 +1,112 @@
+@mixin font-size($sizeValue: 16) {
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 16) + rem;
+}
+
+
+@mixin color-weight-generator ($class, $base-color, $weight: 4) {
+  $bg-color: null;
+
+  @for $i from 1 through 8 {
+    @if $i < 4 {
+      $weight: $weight - 1;
+      $bg-color: lighten($base-color, $weight * 10%);
+    }
+
+    @else if $i==4 {
+      $weight: 0;
+      $bg-color: $base-color;
+    }
+
+    @else {
+      $weight: $weight + 1;
+      $bg-color: darken($base-color, $weight * 10%);
+    }
+
+    .#{$class}-#{$i} {
+      background-color: $bg-color;
+    }
+  }
+}
+
+
+@mixin color-weight($base-color, $weight: 6, $property: 'color') {
+  $bg-color: null;
+  $bg-color: scale-color($base-color, $lightness: (10 - $weight) * 10%);
+
+  #{$property}: $bg-color;
+}
+
+@mixin spacing($space: 15, $property) {
+  $space-value: ($space / 16) + rem;
+  #{$property}: $space-value;
+}
+
+@mixin font-size-generator($base-font, $highest-font: 0) {
+  $font-size: null;
+
+  @if $highest-font==0 {
+    $highest-font: $base-font * 1.5;
+  }
+
+  .main-title {
+    font-size: $highest-font + px;
+    font-size: ($highest-font / 16) + rem;
+  }
+
+  .main-title-description {
+    font-size: ($highest-font * 0.75) + px;
+    font-size: (($highest-font * 0.75) / 16) + rem;
+  }
+
+  .sub-title {
+    font-size: ($highest-font * 0.83) + px;
+    font-size: (($highest-font * 0.83) / 16) + rem;
+  }
+
+  .sub-title-description,
+  .normal-text {
+    font-size: $base-font + px;
+    font-size: ($base-font / 16) + rem;
+  }
+
+  .small-text {
+    font-size: ($base-font * 0.75) + px;
+    font-size: (($base-font * 0.75) / 16) + rem;
+  }
+
+}
+
+
+@mixin frequent-color-class ($frequent-font-colors, $property: color) {
+
+  @each $name,
+  $color in $frequent-font-colors {
+    .custom-#{$name}-#{$property} {
+      #{$property}: $color;
+    }
+  }
+}
+
+
+@mixin font-generator($theme-font-url) {
+
+  @each $font,
+  $font-info in $theme-font-url {
+
+    @each $url,
+    $name in $font-info {
+
+      @if $url=='url' {
+        @import url($name);
+      }
+
+      @if $url=='name' {
+        .f-#{$font} {
+          font-family: $name, sans-serif;
+        }
+      }
+    }
+
+  }
+}
